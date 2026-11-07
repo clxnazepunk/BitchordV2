@@ -9,10 +9,15 @@ on:
     paths:
       - 'web/**'
       - '.github/workflows/web.yml'
+      - '.github/workflows/check.yml'
   pull_request:
     paths:
       - 'web/**'
       - '.github/workflows/web.yml'
+      - '.github/workflows/check.yml'
+
+permissions:
+  contents: read
 
 concurrency:
   group: web-${{ github.workflow }}-${{ github.ref }}
@@ -21,19 +26,22 @@ concurrency:
 jobs:
   web:
     name: Web · typecheck, test, build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
     defaults:
       run:
         working-directory: web
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
 
       # The pnpm version comes from web/package.json's packageManager.
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
         with:
           package_json_file: web/package.json
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
           cache: pnpm
