@@ -9,8 +9,11 @@ No es una versión de producción.
 Instala JDK 17 (recomendado Temurin), Android Studio/SDK y las herramientas:
 
 ```sh
-sdkmanager "platforms;android-37" "platforms;android-36" "build-tools;35.0.0" "ndk;27.0.12077973" "cmake;3.22.1"
+sdkmanager "platforms;android-37.0" "platforms;android-36" "build-tools;35.0.0" "ndk;27.0.12077973" "cmake;3.22.1"
 ```
+
+El identificador del paquete SDK 37 en sdkmanager es android-37.0;
+android-37 no existe en el catálogo comprobado. Esto no cambia compileSdk = 37.
 
 Se necesita conexión para Maven Central, Google Maven, JitPack y las fuentes
 Oboe/libusb de CMake. El flujo falla si un paquete requerido no está disponible;

@@ -32,7 +32,7 @@ jobs:
         id: android-tools
         run: |
           "${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager" \
-            --channel=3 "platforms;android-37" "platforms;android-36" \
+            "platforms;android-37.0" "platforms;android-36" \
             "build-tools;35.0.0" "ndk;27.0.12077973" "cmake;3.22.1"
       - name: Diagnose unavailable SDK packages
         if: ${{ failure() }}
@@ -94,7 +94,7 @@ jobs:
       - name: Install Android platforms
         run: |
           "${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager" \
-            --channel=3 "platforms;android-37" "platforms;android-36" \
+            "platforms;android-37.0" "platforms;android-36" \
             "build-tools;35.0.0" "ndk;27.0.12077973" "cmake;3.22.1"
       - run: chmod +x gradlew
       - run: ./gradlew --no-daemon --stacktrace :app:lintDevDebug
