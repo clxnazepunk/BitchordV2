@@ -17,7 +17,6 @@ on:
       - 'gradle.properties'
       - 'gradle/**'
       - '.github/workflows/tv.yml'
-      - '.github/workflows/check.yml'
   pull_request:
     paths:
       - 'tv/**'
@@ -30,7 +29,6 @@ on:
       - 'gradle.properties'
       - 'gradle/**'
       - '.github/workflows/tv.yml'
-      - '.github/workflows/check.yml'
 
 permissions:
   contents: read

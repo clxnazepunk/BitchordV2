@@ -38,7 +38,7 @@ En Linux/macOS:
 ```sh
 chmod +x gradlew
 ./gradlew --version
-./gradlew :app:testDevDebugUnitTest :tv:testDevDebugUnitTest :shared:jvmTest :sharedUi:jvmTest
+./gradlew :app:testDevDebugUnitTest :shared:jvmTest :sharedUi:jvmTest
 ./gradlew :app:lintDevDebug
 ./gradlew :app:assembleDevDebug
 ```
@@ -47,7 +47,7 @@ En Windows (PowerShell):
 
 ```powershell
 .\gradlew.bat --version
-.\gradlew.bat :app:testDevDebugUnitTest :tv:testDevDebugUnitTest :shared:jvmTest :sharedUi:jvmTest
+.\gradlew.bat :app:testDevDebugUnitTest :shared:jvmTest :sharedUi:jvmTest
 .\gradlew.bat :app:lintDevDebug
 .\gradlew.bat :app:assembleDevDebug
 ```

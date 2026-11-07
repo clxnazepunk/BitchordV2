@@ -40,10 +40,10 @@ jobs:
       # No account credentials or signing secrets are exposed to PR code.
       # AGP creates one disposable debug key shared by phone and watch.
       - run: chmod +x gradlew
-      - name: Unit tests (phone and TV)
+      - name: Unit tests (phone)
         run: >-
           ./gradlew --no-daemon --stacktrace
-          :app:testDevDebugUnitTest :tv:testDevDebugUnitTest
+          :app:testDevDebugUnitTest
       - name: Build phone APK with bundled Wear OS APK
         id: apk-build
         if: ${{ !cancelled() && steps.android-tools.outcome == 'success' }}

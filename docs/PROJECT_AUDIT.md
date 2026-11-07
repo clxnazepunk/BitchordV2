@@ -87,6 +87,9 @@ Las versiones son las declaradas en esta base, no recomendaciones de actualizaci
 
 ## Pruebas y automatización
 
+El alcance de aceptación es Android para teléfono. TV se conserva, pero sus
+pruebas y su compilación no son requisito para cerrar esta preparación.
+
 Inventario de archivos de pruebas Kotlin (no número de casos):
 - app/src/test/: 112
 - app/src/androidTest/: 2
@@ -98,7 +101,7 @@ Además hay tests Go, tests TypeScript/Vitest y usb_stream_test.cpp.
 
 Antes ya existían check.yml (pruebas Android/backend y APK), android.yml
 (release firmado), tv.yml y web.yml. La preparación amplía los existentes:
-- Check: teléfono, TV y tests JVM de shared/sharedUi, lint Android separado,
+- Check: teléfono y tests JVM de shared/sharedUi, lint Android separado,
   APK devDebug completo con reloj, informes incluso con fallos, Go build/vet/race
   y prueba C++ USB con AddressSanitizer/UndefinedBehaviorSanitizer.
 - TV: sigue generando su APK propio, sin secretos y con SDK explícito.

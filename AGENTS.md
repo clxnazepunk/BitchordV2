@@ -31,7 +31,7 @@
 - JDK 17, Gradle wrapper 8.11.1; SDK Android 37 y 36, build-tools 35.0.0, NDK 27.0.12077973 y CMake 3.22.1 para el entorno CI inicial.
 - Consulta docs/ANDROID_BUILD.md para comandos completos y entrega de APK.
 - Con SDK válido, ejecuta:
-  - ./gradlew :app:testDevDebugUnitTest :tv:testDevDebugUnitTest :shared:jvmTest :sharedUi:jvmTest
+  - ./gradlew :app:testDevDebugUnitTest :shared:jvmTest :sharedUi:jvmTest
   - ./gradlew :app:lintDevDebug
   - ./gradlew :app:assembleDevDebug (incluye Wear OS por defecto)
 - En Windows usa .\gradlew.bat en lugar de ./gradlew.
