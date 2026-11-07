@@ -70,7 +70,10 @@ Resultados:
 3. Revisar cada job: pruebas, lint, servidor y USB.
 4. Descargar el artifact `bitchord-dev-debug-<número>` y extraer el ZIP.
 5. Instalar el APK universal del teléfono. Android pedirá permiso para instalar
-   desde el gestor de archivos. Los artifacts caducan a los 14 días.
+   desde el gestor de archivos. Los artifacts caducan a los 14 días. Se incluye un archivo
+   build/apk-checksums.sha256 con huellas SHA-256 del teléfono y reloj.
+   Desde la raíz del ZIP extraído, verificar en Linux con
+   `sha256sum -c build/apk-checksums.sha256`.
 
 Se intenta compilar y guardar APK incluso si fallan las pruebas, para facilitar
 el diagnóstico; la ejecución sigue marcada como fallida. Un artifact por sí

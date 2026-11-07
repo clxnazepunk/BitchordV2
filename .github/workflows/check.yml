@@ -44,6 +44,12 @@ jobs:
       - name: Build phone APK with bundled Wear OS APK
         if: ${{ !cancelled() }}
         run: ./gradlew --no-daemon --stacktrace :app:assembleDevDebug
+      - name: Record APK checksums
+        if: ${{ !cancelled() }}
+        run: |
+          mkdir -p build
+          sha256sum app/build/outputs/apk/dev/debug/*.apk \
+            wearos/build/outputs/apk/dev/debug/*.apk > build/apk-checksums.sha256
       - name: Upload test APKs
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -52,6 +58,7 @@ jobs:
           path: |
             app/build/outputs/apk/dev/debug/*.apk
             wearos/build/outputs/apk/dev/debug/*.apk
+            build/apk-checksums.sha256
           if-no-files-found: error
           retention-days: 14
       - name: Upload test reports
